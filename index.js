@@ -21,10 +21,10 @@ app.use(cors({ origin: "*" }));
 app.use(userRouter);
 app.use(tableRouter);
 
-// app.use(express.static(path.join(__dirname, "./client/build")));
-// app.get("*", function (req, res) {
-//   res.sendFile(path.join(__dirname, "./client/build/index.html"));
-// });
+app.use(express.static(path.join(__dirname, "./client/build")));
+app.get("*", function (req, res) {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
 
 app.get("/", (req, res) => {
   return res.status(200).json("server is listening");
